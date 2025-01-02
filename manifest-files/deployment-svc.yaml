@@ -1,0 +1,36 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: swiggy-app
+  labels:
+    app: swiggy-app
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: swiggy-app
+  template:
+    metadata:
+      labels:
+        app: swiggy-app
+    spec:
+      containers:
+        - name: swiggy-app
+          image: mannam1/swiggy:v3
+          imagePullPolicy: "always"
+          ports:
+             - containerPort: 3000
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: swiggy-service
+spec:
+  type: NodePort
+  ports:
+    - protocol: "TCP"
+      port: 1234
+      targetPort: 3000
+  selector:
+      app: swiggy-app
