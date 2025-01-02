@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
         - name: swiggy-app
-          image: mannam1/swiggy:v1
+          image: mannam1/swiggy:v2
           imagePullPolicy: "always"
           ports:
              - containerPort: 3000
