@@ -1,0 +1,1 @@
+if we want to attach a pvc to the workDir /app in the docker image . it cause error because it overwrites the files in the /app path docker image after attaching kuberneties volume to the  path /app, 
